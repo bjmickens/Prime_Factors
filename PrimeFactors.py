@@ -1,5 +1,5 @@
 from itertools import combinations
-
+from tabulate import tabulate
 
 def prime_factors(number):
     factors = []
@@ -46,29 +46,35 @@ def get_set_from_user():
 def print_factoring_chart(factors, input_number):
     p_set = power_set(factors)
 
-    print("\nElement of power set", " " * 25, end="")
-    for factor in sorted(factors, reverse=True):
-        print(f"include {factor}", " " * 15, end="")
-    print("resulting factoring")
+    # Prepare headers
+    headers = ["Subset"]
+    headers.extend([f"Include {f}" for f in sorted(factors, reverse=True)])
+    headers.append("Factorization")
 
+    # Prepare table rows
+    table_data = []
     for subset in sorted(p_set, key=lambda x: (len(x), x)):
-        if len(subset) == 0:
-            print("∅", " " * 45, end="")
-        else:
-            subset_str = str(subset)
-            print(f"{subset_str}", " " * (47 - len(subset_str)), end="")
+        row = []
 
+        # Add subset representation
+        subset_str = "∅" if len(subset) == 0 else str(subset)
+        row.append(subset_str)
+
+        # Add X markers for included factors
         for factor in sorted(factors, reverse=True):
-            if factor in subset:
-                print("x", " " * 25, end="")
-            else:
-                print(" " * 26, end="")
+            row.append("X" if factor in subset else "")
 
-        product = 1
+        # Calculate and add factorization
+        product = 1 if subset else 0
         for factor in subset:
             product *= factor
         other_factor = input_number // product if product != 0 else input_number
-        print(f"{product} x {other_factor}")
+        row.append(f"{product} × {other_factor}")
+
+        table_data.append(row)
+
+    # Print the table
+    print("\n" + tabulate(table_data, headers=headers, tablefmt="grid", stralign="center"))
 
 
 def main():
