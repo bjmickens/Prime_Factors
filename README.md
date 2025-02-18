@@ -1,6 +1,6 @@
 # Prime Factorization & Power Set Explorer
 
-Welcome to the **Prime Factorization & Power Set Explorer** – a playful, yet powerful, tool for diving deep into the fascinating world of numbers and set theory! This Python-based program not only computes the prime factors of a given number but also generates the power set of those factors and visualizes every possible way the number can be factored using its subsets. Whether you're a math enthusiast, a student, or just love to tinker with algorithms, this interactive command-line tool is for you.
+Welcome to the **Prime Factorization & Power Set Explorer** - a playful, yet powerful, tool for diving deep into the fascinating world of numbers and set theory! This Python-based program not only computes the prime factors of a given number but also generates the power set of those factors and visualizes every possible way the number can be factored using its subsets. Whether you're a math enthusiast, a student, or just love to tinker with algorithms, this interactive command-line tool is for you.
 
 ---
 
