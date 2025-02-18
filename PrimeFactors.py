@@ -2,7 +2,8 @@ from itertools import combinations  # Handles mathematical combination operation
 from tabulate import tabulate      # Creates well-formatted, readable tables
 
 def prime_factors(number):
-    # Returns a list of prime factors for any given number.
+    """Returns a list of prime factors for any given number.
+    Note: The factors are returned in ascending order."""
     factors = []
     i = 2
     # Search optimization: check factors only up to sqrt(number)
@@ -57,7 +58,7 @@ def print_factoring_chart(factors, input_number):
 
     # Define table structure
     headers = ["Subset"]
-    headers.extend([f"Include {f}" for f in sorted(factors, reverse=True)])
+    headers.extend([f"Include {f}" for f in sorted(factors, reverse=True)][::-1])  # Reverse the list after creating it
     headers.append("Factorization")
 
     # Build table data
@@ -70,7 +71,7 @@ def print_factoring_chart(factors, input_number):
         row.append(subset_str)
 
         # Mark factor inclusion
-        for factor in sorted(factors, reverse=True):
+        for factor in sorted(factors, reverse=True)[::-1]:  # Reverse the list after sorting
             row.append("X" if factor in subset else "")
 
         # Calculate factorization
@@ -78,7 +79,7 @@ def print_factoring_chart(factors, input_number):
         for factor in subset:
             product *= factor
         other_factor = input_number // product if product != 0 else input_number
-        row.append(f"{product} × {other_factor}")
+        row.append(f"{product} x {other_factor}")
 
         table_data.append(row)
 
