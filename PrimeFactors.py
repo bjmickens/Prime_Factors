@@ -74,9 +74,9 @@ def print_factoring_chart(factors, input_number):
 def main():
     while True:
         print("\nMenu:")
-        print("1. Find prime factors")
-        print("2. Find power set")
-        print("3. List all factorings and subsets")
+        print("1. Find Prime Factors")
+        print("2. Find Power Set")
+        print("3. List All Factorings and Subsets")
         print("4. Exit")
 
         choice = input("Enter your choice (1-4): ")
