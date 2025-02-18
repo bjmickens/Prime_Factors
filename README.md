@@ -27,8 +27,8 @@ Make sure you have [Python 3](https://www.python.org/downloads/) installed on yo
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/yourusername/prime-factorization-power-set-explorer.git
-   cd prime-factorization-power-set-explorer
+   git clone https://github.com/bjmickens/Prime_Factors.git
+   cd Prime_Factors
 
 2. **Run the Program:**
 
