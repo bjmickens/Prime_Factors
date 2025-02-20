@@ -5,15 +5,15 @@ def prime_factors(number):
     """Returns a list of prime factors for any given number.
     Note: The factors are returned in ascending order."""
     factors = []
-    i = 2
+    divisor = 2
     # Search optimization: check factors only up to sqrt(number)
     # This significantly reduces computation time for large numbers
-    while i * i <= number:
-        if number % i == 0:
-            factors.append(i)      # Store each discovered prime factor
-            number //= i          # Divide out the found prime factor
+    while divisor ** 2 <= number:
+        if number % divisor == 0:
+            factors.append(divisor)      # Store each discovered prime factor
+            number //= divisor          # Divide out the found prime factor
         else:
-            i += 1               # Move to next potential factor
+            divisor += 1               # Move to next potential factor
     # Include any remaining prime factor greater than 1
     if number > 1:
         factors.append(number)
