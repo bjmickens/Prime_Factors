@@ -74,10 +74,10 @@ def print_factoring_chart(factors, input_number):
             row.append("X" if factor in subset else "")
 
         # Calculate factorization
-        product = 1 if subset else 0
+        product = 1
         for factor in subset:
             product *= factor
-        other_factor = input_number // product if product != 0 else input_number
+        other_factor = input_number // product
         row.append(f"{product} x {other_factor}")
 
         table_data.append(row)
