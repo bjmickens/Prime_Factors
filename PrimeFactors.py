@@ -2,8 +2,7 @@ from itertools import combinations  # Handles mathematical combination operation
 from tabulate import tabulate      # Creates well-formatted, readable tables
 
 def prime_factors(number):
-    """Returns a list of prime factors for any given number.
-    Note: The factors are returned in ascending order."""
+    # Returns a list of prime factors for any given number.
     factors = []
     divisor = 2
     # Search optimization: check factors only up to sqrt(number)
@@ -20,8 +19,8 @@ def prime_factors(number):
     return factors
 
 def power_set(numbers):
-    """Generates the power set (set of all possible subsets) from a given set.
-    Example: Input [1,2] yields [[], [1], [2], [1,2]]"""
+    # Generates the power set (set of all possible subsets) from a given set.
+
     numbers = list(numbers)
     power_set = [set()]  # Initialize with empty set - a fundamental subset
     # Generate subsets of increasing size, from 1 element to full set
@@ -31,7 +30,7 @@ def power_set(numbers):
     return power_set
 
 def print_power_set_info(p_set, original_set):
-    """Displays the complete power set and calculates total number of subsets."""
+    # Displays the complete power set and calculates total number of subsets.
     print(f"\nPower set P(X) where X = {set(original_set)}:")
     for subset in p_set:
         if len(subset) == 0:
@@ -42,8 +41,8 @@ def print_power_set_info(p_set, original_set):
     print(f"\nTotal number of sets: 2^{len(original_set)} = {2 ** len(original_set)}")
 
 def get_set_from_user():
-    """Collects and validates user input for a set of numbers.
-    Returns a list of integers from space-separated input."""
+    # Collects and validates user input for a set of numbers.
+    # Returns a list of integers from space-separated input.
     while True:
         try:
             numbers = input("Enter a set of numbers separated by spaces: ")
@@ -52,8 +51,8 @@ def get_set_from_user():
             print("Invalid input. Please enter a valid set of numbers.")
 
 def print_factoring_chart(factors, input_number):
-    """Creates a formatted table showing all possible factorings and their relationships.
-    Displays subsets, factor inclusion, and corresponding factorizations."""
+    # Creates a formatted table showing all possible factorings and their relationships.
+    # Displays subsets, factor inclusion, and corresponding factorizations.
     p_set = power_set(factors)
 
     # Define table structure
@@ -87,7 +86,7 @@ def print_factoring_chart(factors, input_number):
     print("\n" + tabulate(table_data, headers=headers, tablefmt="grid", stralign="center"))
 
 def main():
-    """Controls program flow through menu-driven interface."""
+    # Controls program flow through menu-driven interface.
     while True:
         print("\nMenu:")
         print("1. Find Prime Factors")
